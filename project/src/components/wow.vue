@@ -13,8 +13,8 @@
   </section>
 </template>
 <script>
-import dogecoinImage from '../assets/images/dogecoin.png';
-import dollarImage from '../assets/images/dollar.jpg';
+import dogecoinImage from '/dogecoin.png';
+import dollarImage from '/dollar.jpg';
 
 const greenColor = 'rgba(34, 168, 30, 0.7)';
 const redColor = 'rgba(253, 4, 4, 0.7)';
@@ -34,37 +34,20 @@ export default {
     }
   },
   methods: {
-    generateWow(isIncrease) {
+    generateWow(value) {
       const previousWowtext = document.getElementById('wowText');
       if (!!previousWowtext)
         previousWowtext.remove(); // remove previous text
       const wow = document.createElement("div");
       wow.id = 'wowText';
+      wow.classList.add('wowText');
       let keyFrame = [];
-      if (isIncrease) {
-        keyFrame = [
-          {
-            top: '2rem',
-            right: '2rem'
-          },
-          {
-            top: 0,
-            right: 0
-          }
-        ]
-        wow.style.color = greenColor;
+      if (value === 1) {
+        wow.classList.add('increaseAnimation');
+      } else if (value === -1) {
+        wow.classList.add('decreaseAnimation');
       } else {
-        keyFrame = [
-          {
-            top: '2rem',
-            left: '2rem'
-          },
-          {
-            top: '4rem',
-            left: 0
-          }
-        ]
-        wow.style.color = redColor;
+        wow.classList.add('equalAnimation');
       }
       wow.animate(keyFrame, {});
       const wowText = document.createTextNode("wow");
@@ -74,23 +57,17 @@ export default {
       wowContainer.appendChild(wow);
     }
   },
-  computed: {
-    dogePrice() {
-      return this.dogePrice.toFixed(4)
-    }
-  },
   watch: {
     dogePrice(newPrice, oldPrice) {
-      newPrice = newPrice.toFixed(4);
-      oldPrice = oldPrice.toFixed(4);
       if (newPrice > oldPrice) {
         this.color = greenColor;
-        this.generateWow(true);
+        this.generateWow(1);
       } else if (newPrice == oldPrice) {
         this.color = 'black';
+        this.generateWow(0);
       } else {
         this.color = redColor;
-        this.generateWow(false);
+        this.generateWow(-1);
       }
     }
   }
