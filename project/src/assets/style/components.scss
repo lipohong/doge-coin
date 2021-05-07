@@ -1,0 +1,80 @@
+.wow {
+  .progressBarContainer {
+    width: 50rem;
+    position: relative;
+    .dollarImage {
+      width: 100%;
+      vertical-align: middle;
+    }
+    .progressBarLeft {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background-color: rgba(34, 168, 30, 0.7);
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .wowContainer {
+        transform: translateX(50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .dogeImage {
+          display: block;
+          width: 6rem;
+          height: 6rem;
+        }
+        @keyframes wowAnimation {
+          from {
+            opacity: 1;
+            transform: scale(0);
+          }
+          to {
+            opacity: 0.5;
+            transform: scale(1);
+          }
+        }
+        #wowText {
+          color: green;
+          position: absolute;
+          font-size: 1.5rem;
+          font-weight: bolder;
+          text-shadow: 2px 2px 3px white, -2px -2px 3px white, -2px 2px 3px white, 2px -2px 3px white;
+          animation-duration: 1s;
+          animation-name: wowAnimation;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+        }
+        main {
+          display: block;
+          font-size: 2.5rem;
+          background-color: rgba(255, 255, 255, 0.5);
+          padding: 0.5rem;
+          border-radius: 1rem;
+        }
+      }
+    }
+    .progressBarRight {
+      position: absolute;
+      background-color: rgba(253, 4, 4, 0.7);
+      opacity: 0.7;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+    }
+  }
+}
+.message {
+  color: white;
+  text-align: center;
+  padding: 3rem;
+  header {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  main {
+    font-size: 1.5rem;
+  }
+}
