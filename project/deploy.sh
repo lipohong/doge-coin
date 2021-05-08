@@ -7,12 +7,13 @@ set -e
 npm run build
 
 # navigate into the build output directory
-cd ../docs
+cd ../
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'Update and deploy'
 
 git push -f git@github.com:lipohong/doge-coin.git master:gh-pages
+git push -f git@github.com:lipohong/doge-coin.git master
 
 cd -
