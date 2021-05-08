@@ -5,7 +5,7 @@
       <div class="progressBarLeft" :style="`width: ${dogePrice * 100}%`">
         <div class="wowContainer" id="wowContainer">
           <img class="dogeImage" :src="dogecoinImage" />
-          <main :style="`color: ${color}`">$ {{ dogePrice }}</main>
+          <main :style="`color: ${color}`">$ {{ String(dogePrice).padEnd(7, '0') }}</main>
         </div>
       </div>
       <div class="progressBarRight" :style="`width: ${(1 - dogePrice ) * 100}%`"></div>

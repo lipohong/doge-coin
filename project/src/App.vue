@@ -24,7 +24,7 @@ export default {
     if (!!window) {
       window.getPrice = setInterval(async () => {
         const res = await axios.get(`${url}/api/v3/ticker/price?symbol=${symbol}`);
-        this.dogePrice = Number(Number(res.data.price).toFixed(5));
+        this.dogePrice = Number(res.data.price);
       }, 1000);
     }
   },

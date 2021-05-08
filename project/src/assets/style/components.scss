@@ -1,6 +1,6 @@
 .wow {
   .progressBarContainer {
-    width: 50rem;
+    width: 95vw;
     position: relative;
     .dollarImage {
       width: 100%;
@@ -24,6 +24,24 @@
           display: block;
           width: 6rem;
           height: 6rem;
+        }
+        @media only screen and (max-width: 600px) {
+          .dogeImage {
+            width: 3rem;
+            height: 3rem;
+          }
+        }
+        @media only screen and (max-width: 864px) and (min-width: 601px){
+          .dogeImage {
+            width: 4rem;
+            height: 4rem;
+          }
+        }
+        @media only screen and (max-width: 1024px) and (min-width: 865px) {
+          .dogeImage {
+            width: 5rem;
+            height: 5rem;
+          }
         }
         @keyframes increaseAnimation {
           from {
@@ -49,7 +67,7 @@
           to {
             opacity: 0;
             transform: scale(1);
-            top: 4rem;
+            top: 0rem;
             left: 0rem;
           }
         }
@@ -90,6 +108,21 @@
           padding: 0.5rem;
           border-radius: 1rem;
         }
+        @media only screen and (max-width: 600px) {
+          main {
+            font-size: 1.2rem;
+          }
+        }
+        @media only screen and (max-width: 864px) and (min-width: 601px){
+          main {
+            font-size: 1.5rem;
+          }
+        }
+        @media only screen and (max-width: 1024px) and (min-width: 865px) {
+          main {
+            font-size: 2rem;
+          }
+        }
       }
     }
     .progressBarRight {
@@ -113,5 +146,30 @@
   }
   main {
     font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 600px) {
+    header {
+      font-size: 1.5rem;
+    }
+    main {
+      font-size: 1.2rem;
+    }
+  }
+  @media only screen and (max-width: 864px) and (min-width: 601px){
+    header {
+      font-size: 1.7rem;
+    }
+    main {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) and (min-width: 865px) {
+    header {
+      font-size: 2rem;
+    }
+    main {
+      font-size: 1.5rem;
+    }
   }
 }
