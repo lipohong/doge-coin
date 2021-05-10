@@ -1,14 +1,9 @@
-#!/usr/bin/env sh
-
-# abort on errors
-set -e
-
 # build
 npm run build
 
 git add .
-read -p "Enter your commit message: " commitMessage
-git commit -m "$commitMessage"
+set /p commitMessage= "Enter your commit message: " 
+git commit -m "%commitMessage%"
 git push origin master
 
 # navigate into the build output directory
