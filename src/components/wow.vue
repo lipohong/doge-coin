@@ -24,11 +24,16 @@ export default {
     dogePrice: {
       type: Number,
       required: true
+    },
+    ticker: {
+      type: Number,
+      required: true
     }
   },
   data() {
     return {
       color: 'black',
+      previousPrice: 0,
       dogecoinImage,
       dollarImage
     }
@@ -63,17 +68,18 @@ export default {
     }
   },
   watch: {
-    dogePrice(newPrice, oldPrice) {
-      if (newPrice > oldPrice) {
+    ticker() {
+      if (this.dogePrice > this.previousPrice) {
         this.color = greenColor;
         this.generateWow(1);
-      } else if (newPrice == oldPrice) {
+      } else if (this.dogePrice === this.previousPrice) {
         this.color = 'black';
         this.generateWow(0);
       } else {
         this.color = redColor;
         this.generateWow(-1);
       }
+      this.previousPrice = this.dogePrice;
     }
   }
 }
